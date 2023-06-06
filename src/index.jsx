@@ -1,21 +1,18 @@
-import React from 'react';
-import ReactDOM from 'react-dom/client';
-import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
-import Home from './pages/Home';
+import React from "react";
+import ReactDOM from "react-dom/client";
+import { BrowserRouter as Router } from "react-router-dom";
+import Header from "./Layout/Header";
+import Footer from "./Layout/Footer";
+import AppRoutes from "./routes";
+import "./index.css";
 
-
-const root = ReactDOM.createRoot(document.getElementById('root'));
+const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <React.StrictMode>
-   <Router>
-<Routes>
-  <Route>
-  <Route exact path="/" element={<Home />} />
-  </Route>
-</Routes>
-   </Router>
+    <Router>
+      <Header />
+      <AppRoutes />
+      <Footer />
+    </Router>
   </React.StrictMode>
 );
-
-
-
