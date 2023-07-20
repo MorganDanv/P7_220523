@@ -1,24 +1,18 @@
 import React from "react";
-import styled from "styled-components";
-import BannerHousing from "../../assets/BannerHousing.svg";
-const BannerHousingContainer = styled.section`
-  padding-left: 100px;
-  padding-right: 100px;
-  margin-top: 50px;
-  margin-bottom: 50px;
-`;
-
-const BannerHousingScreen = styled.img`
-  width: 100%;
-  border-radius: 30px;
-`;
+import { useParams } from "react-router-dom";
+import data from "../../data.json";
+// import Slider from "../../components/Slider";
+import Accordions from "../../components/Accordions";
 
 function Housing() {
+  const { logementId } = useParams();
+
+  const logement = data.find((log) => log.id === logementId);
+  console.log(logement);
   return (
     <div>
-      <BannerHousingContainer>
-        <BannerHousingScreen src={BannerHousing} />
-      </BannerHousingContainer>
+      {/* {<Slider slides={data.pictures} />} */}
+      <Accordions />
     </div>
   );
 }

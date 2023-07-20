@@ -7,10 +7,10 @@ function Card(title, picture) {
 
   return (
     <div>
-      {data.map((id) => (
+      {data.map((data) => (
         <Card
           key={`${dataJava.id}`}
-          picture={dataJava.picture}
+          picture={dataJava.cover}
           title={dataJava.title}
         />
       ))}

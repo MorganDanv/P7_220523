@@ -9,7 +9,7 @@ function AppRoutes() {
     <Routes>
       <Route exact path="/" element={<Home />} />
       <Route path="/about" element={<About />} />
-      <Route path="/housing" element={<Housing />} />
+      <Route path="/housing/:logementId" element={<Housing />} />
       <Route path="*" element={<Error404 />} />
     </Routes>
   );

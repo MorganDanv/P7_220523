@@ -1,5 +1,5 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 import styled from "styled-components";
 import { StyledLink } from "../../utils/styles/LinkStyle";
 import LogoKasa from "../../assets/LogoKasa.svg";
@@ -37,9 +37,9 @@ function Header() {
           <IllustrationLogo src={LogoKasa} />
         </LogoContainer>
         <LinkContainer>
-          <Link to="/"> </Link>
+          <NavLink to="/"> </NavLink>
           <StyledLink to="/">Accueil</StyledLink>
-          <Link to="/about"> </Link>
+          <NavLink to="/about"> </NavLink>
           <StyledLink to="/about">A Propos</StyledLink>
         </LinkContainer>
       </NavContainer>

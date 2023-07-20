@@ -1,9 +1,8 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 import styled from "styled-components";
-import { StyledLink, StyledText } from "../../utils/styles/LinkStyle";
+import { StyledText } from "../../utils/styles/LinkStyle";
 import ErrorScreen from "../../assets/ErrorScreen.svg";
-import colors from "../../utils/styles/colors";
 
 const ScreenWrapper = styled.div`
   display: flex;
@@ -12,10 +11,17 @@ const ScreenWrapper = styled.div`
   padding-top: 100px;
 `;
 
-const IllustrationError = styled.img`
-  max-width: 380px;
-  background-color: ${colors.background};
+const StyledLink = styled(NavLink)`
+  display: flex;
+  padding: 15px;
+  color: #ff7474;
+  font-size: 22px;
+  text-align: center;
+  font-weight: bold;
+  text-decoration: underline;
 `;
+
+const IllustrationError = styled.img``;
 
 function Error() {
   return (
@@ -24,7 +30,7 @@ function Error() {
       <StyledText>
         Oups! La page que vous demandez n&apos;existe pas.
       </StyledText>
-      <Link to="/"> </Link>
+
       <StyledLink to="/">Retourner sur la page d'accueil</StyledLink>
     </ScreenWrapper>
   );
