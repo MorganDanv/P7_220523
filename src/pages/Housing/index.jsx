@@ -37,19 +37,16 @@ const ContainerStyles = styled.div`
   width: 100%;
   height: 415px;
   margin: 0 auto;
-  background-image: url("${(slides) =>
-    slides.imgObj ? slides.imgObj.url : slides}");
 `;
 function Housing() {
   const { logementId } = useParams();
   const logement = data.find((log) => log.id === logementId);
   console.log(logement);
-  const slides = logement.pictures;
 
   return (
     <>
       <ContainerStyles>
-        <Slider slides={slides} />
+        <Slider />
       </ContainerStyles>
       <TitleHostContainer>
         <SliderTitle>{logement.title}</SliderTitle>

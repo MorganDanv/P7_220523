@@ -31,8 +31,7 @@ const SlideStyles = styled.img`
   border-radius: 10px;
   background-position: center;
   background-size: cover;
-  background-image: url("${(slides) =>
-    slides.slides ? slides.currentIndex.url : slides.currentIndex}");
+  background-image: url("${(props) => props.$slides.$currentIndex}");
 `;
 const Slider = ({ slides }) => {
   const [currentIndex, setCurrentIndex] = useState(0);
@@ -58,13 +57,13 @@ const Slider = ({ slides }) => {
             alt="previous"
           />
           <RightArrowStyles src={ArrowRight} onClick={goToNext} alt="next" />
-          <SlideStyles slides={slides} currentIndex={currentIndex} />
+          <SlideStyles $slides={slides} $currentIndex={currentIndex} />
         </>
       )}
       {slides.length <= 1 && (
         <>
           <SliderStyles />
-          <SlideStyles slides={slides} currentIndex={currentIndex} />
+          <SlideStyles $slides={slides} $currentIndex={currentIndex} />
         </>
       )}
     </>
