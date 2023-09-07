@@ -5,22 +5,25 @@ import { StyledLink } from "../../utils/styles/LinkStyle";
 import LogoKasa from "../../assets/LogoKasa.svg";
 
 const HeaderContainer = styled.header`
-  flex-direction: row;
-  align-items: center;
-  justify-content: end;
-  padding-top: 40px;
+  padding-bottom: 50px;
+  padding-top: 50px;
+  @media (min-width: 320px) and (max-width: 1200px) {
+    padding-bottom: 0px;
+    padding-top: 15px;
+  }
 `;
 
 const NavContainer = styled.nav`
   display: flex;
-  padding-left: 100px;
-  padding-right: 100px;
   justify-content: space-between;
   align-items: center;
 `;
 
 const LogoContainer = styled.div`
   display: flex;
+  @media (min-width: 320px) and (max-width: 1200px) {
+    height: 40px;
+  }
 `;
 
 const IllustrationLogo = styled.img``;

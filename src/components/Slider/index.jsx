@@ -1,54 +1,74 @@
-// import React, { useState } from "react";
-// import styled from "styled-components";
-// import ArrowLeft from "../../assets/ArrowLeft.svg";
-// import ArrowRight from "../../assets/ArrowRight.svg";
-// import data from "../../data.json";
+import React, { useState } from "react";
+import ArrowLeft from "../../assets/ArrowLeft.svg";
+import ArrowRight from "../../assets/ArrowRight.svg";
+import styled from "styled-components";
 
-// const ArrowStyleL = styled.img`
-//   font-size: 50px;
-// `;
+const SliderStyles = styled.div`
+  height: 100%;
+  position: relative;
+`;
 
-// const ArrowStyleR = styled.img`
-//   font-size: 50px;
-// `;
+const LeftArrowStyles = styled.img`
+  position: absolute;
+  top: 50%;
+  transform: translate(0, -50%);
+  left: 32px;
+  z-index: 1;
+  cursor: pointer;
+`;
 
-// const SlideImage = styled.img`
-//   width: 400px;
-//   height: 300px;
-//   object-fit: cover;
-// `;
+const RightArrowStyles = styled.img`
+  position: absolute;
+  top: 50%;
+  transform: translate(0, -50%);
+  right: 32px;
+  z-index: 1;
+  cursor: pointer;
+`;
+const SlideStyles = styled.img`
+  width: 100%;
+  height: 100%;
+  border-radius: 10px;
+  background-position: center;
+  background-size: cover;
+  background-image: url("${(slides) =>
+    slides.slides ? slides.currentIndex.url : slides.currentIndex}");
+`;
+const Slider = ({ slides }) => {
+  const [currentIndex, setCurrentIndex] = useState(0);
 
-// const StyledSlider = styled.div`
-//   position: relative;
-//   display: flex;
-//   justify-content: center;
-//   align-items: center;
-// `;
+  const goToPrevious = () => {
+    const isFirstSlide = currentIndex === 0;
+    const newIndex = isFirstSlide ? slides.length - 1 : currentIndex - 1;
+    setCurrentIndex(newIndex);
+  };
+  const goToNext = () => {
+    const isLastSlide = currentIndex === slides.length - 1;
+    const newIndex = isLastSlide ? 0 : currentIndex + 1;
+    setCurrentIndex(newIndex);
+  };
+  return (
+    <>
+      {slides.length > 1 && (
+        <>
+          <SliderStyles />
+          <LeftArrowStyles
+            src={ArrowLeft}
+            onClick={goToPrevious}
+            alt="previous"
+          />
+          <RightArrowStyles src={ArrowRight} onClick={goToNext} alt="next" />
+          <SlideStyles slides={slides} currentIndex={currentIndex} />
+        </>
+      )}
+      {slides.length <= 1 && (
+        <>
+          <SliderStyles />
+          <SlideStyles slides={slides} currentIndex={currentIndex} />
+        </>
+      )}
+    </>
+  );
+};
 
-// const Slider = ({ slides }) => {
-//   const [current, setCurrent] = useState(0);
-//   const length = 13;
-
-//   const nextSlide = () => {
-//     setCurrent(current === length - 1 ? 0 : current + 1);
-//   };
-
-//   const prevSlide = () => {
-//     setCurrent(current === 0 ? length - 1 : current - 1);
-//   };
-//   return (
-//     <StyledSlider>
-//       <ArrowStyleL src={ArrowLeft} onClick={prevSlide} />
-//       <ArrowStyleR src={ArrowRight} onClick={nextSlide} />
-//       {slides.map((data, id) => {
-//         return (
-//           <div key={id}>
-//             {id === current && <SlideImage src={data.cover} alt="" />}
-//           </div>
-//         );
-//       })}
-//     </StyledSlider>
-//   );
-// };
-
-// export default Slider;
+export default Slider;

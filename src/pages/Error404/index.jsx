@@ -9,6 +9,9 @@ const ScreenWrapper = styled.div`
   flex-direction: column;
   align-items: center;
   padding-top: 100px;
+  @media (min-width: 320px) and (max-width: 1200px) {
+    padding-top: 180px;
+  }
 `;
 
 const StyledLink = styled(NavLink)`
@@ -19,9 +22,17 @@ const StyledLink = styled(NavLink)`
   text-align: center;
   font-weight: bold;
   text-decoration: underline;
+  @media (min-width: 320px) and (max-width: 1200px) {
+    font-size: 17px;
+    padding-top: 180px;
+  }
 `;
 
-const IllustrationError = styled.img``;
+const IllustrationError = styled.img`
+  @media (min-width: 320px) and (max-width: 1200px) {
+    height: 100px;
+  }
+`;
 
 function Error() {
   return (
