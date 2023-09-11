@@ -46,7 +46,7 @@ function Housing() {
   return (
     <>
       <ContainerStyles>
-        <Slider />
+        <Slider slides={logement.pictures} src={logement.pictures} />
       </ContainerStyles>
       <TitleHostContainer>
         <SliderTitle>{logement.title}</SliderTitle>

@@ -3,7 +3,7 @@ import ArrowLeft from "../../assets/ArrowLeft.svg";
 import ArrowRight from "../../assets/ArrowRight.svg";
 import styled from "styled-components";
 
-const SliderStyles = styled.div`
+const SliderStyles = styled.img`
   height: 100%;
   position: relative;
 `;
@@ -36,6 +36,7 @@ const SlideStyles = styled.img`
 const Slider = ({ slides }) => {
   const [currentIndex, setCurrentIndex] = useState(0);
 
+  console.log(slides);
   const goToPrevious = () => {
     const isFirstSlide = currentIndex === 0;
     const newIndex = isFirstSlide ? slides.length - 1 : currentIndex - 1;
