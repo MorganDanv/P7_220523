@@ -3,9 +3,13 @@ import ArrowLeft from "../../assets/ArrowLeft.svg";
 import ArrowRight from "../../assets/ArrowRight.svg";
 import styled from "styled-components";
 
-const SliderStyles = styled.img`
+const SliderStyles = styled.div`
   height: 100%;
   position: relative;
+  border-radius: 20px;
+  background-position: center;
+  background-size: cover;
+  background-image: url(${(props) => props.$pictures[props.$currentIndex]});
 `;
 
 const LeftArrowStyles = styled.img`
@@ -15,6 +19,9 @@ const LeftArrowStyles = styled.img`
   left: 32px;
   z-index: 1;
   cursor: pointer;
+  @media (min-width: 320px) and (max-width: 1200px) {
+    height: 3rem;
+  }
 `;
 
 const RightArrowStyles = styled.img`
@@ -24,47 +31,41 @@ const RightArrowStyles = styled.img`
   right: 32px;
   z-index: 1;
   cursor: pointer;
+  @media (min-width: 320px) and (max-width: 1200px) {
+    height: 3rem;
+  }
 `;
-const SlideStyles = styled.img`
-  width: 100%;
-  height: 100%;
-  border-radius: 10px;
-  background-position: center;
-  background-size: cover;
-  background-image: url("${(props) => props.$slides.$currentIndex}");
-`;
-const Slider = ({ slides }) => {
+
+const Slider = ({ pictures }) => {
   const [currentIndex, setCurrentIndex] = useState(0);
 
-  console.log(slides);
+  console.log(pictures);
   const goToPrevious = () => {
     const isFirstSlide = currentIndex === 0;
-    const newIndex = isFirstSlide ? slides.length - 1 : currentIndex - 1;
+    const newIndex = isFirstSlide ? pictures.length - 1 : currentIndex - 1;
     setCurrentIndex(newIndex);
   };
   const goToNext = () => {
-    const isLastSlide = currentIndex === slides.length - 1;
+    const isLastSlide = currentIndex === pictures.length - 1;
     const newIndex = isLastSlide ? 0 : currentIndex + 1;
     setCurrentIndex(newIndex);
   };
   return (
     <>
-      {slides.length > 1 && (
+      {pictures.length > 1 && (
         <>
-          <SliderStyles />
+          <SliderStyles $pictures={pictures} $currentIndex={currentIndex} />
           <LeftArrowStyles
             src={ArrowLeft}
             onClick={goToPrevious}
             alt="previous"
           />
           <RightArrowStyles src={ArrowRight} onClick={goToNext} alt="next" />
-          <SlideStyles $slides={slides} $currentIndex={currentIndex} />
         </>
       )}
-      {slides.length <= 1 && (
+      {pictures.length <= 1 && (
         <>
-          <SliderStyles />
-          <SlideStyles $slides={slides} $currentIndex={currentIndex} />
+          <SliderStyles $pictures={pictures} $currentIndex={currentIndex} />
         </>
       )}
     </>

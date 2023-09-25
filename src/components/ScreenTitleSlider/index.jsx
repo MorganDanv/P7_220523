@@ -1,20 +1,17 @@
 import React from "react";
 import styled from "styled-components";
-import data from "../../data.json";
-import { useParams } from "react-router-dom";
 
 const TitleBox = styled.div`
-  display: flex;
-  width: 100%;
   color: #ff6060;
   font-weight: bold;
-  font-size: 2.4rem;
+  font-size: 1.7rem;
+  @media (min-width: 320px) and (max-width: 1200px) {
+    font-size: 1.8rem;
+  }
 `;
 
-function SliderTitle(location) {
-  const { logementId } = useParams();
-  const logement = data.find((log) => log.id === logementId);
-  return <TitleBox key={location}>{logement.title}</TitleBox>;
+function SliderTitle(props) {
+  return <TitleBox>{props.title}</TitleBox>;
 }
 
 export default SliderTitle;

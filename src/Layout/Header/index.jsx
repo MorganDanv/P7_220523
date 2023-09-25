@@ -5,11 +5,11 @@ import { StyledLink } from "../../utils/styles/LinkStyle";
 import LogoKasa from "../../assets/LogoKasa.svg";
 
 const HeaderContainer = styled.header`
-  padding-bottom: 50px;
-  padding-top: 50px;
+  padding-top: 40px;
+  padding-bottom: 40px;
   @media (min-width: 320px) and (max-width: 1200px) {
-    padding-bottom: 0px;
     padding-top: 15px;
+    padding-bottom: 0px;
   }
 `;
 

@@ -1,34 +1,37 @@
 import React from "react";
 import styled from "styled-components";
-import data from "../../data.json";
-import { useParams } from "react-router-dom";
 
 const TagsContainer = styled.div`
   display: flex;
+  gap: 15px;
+  @media (min-width: 320px) and (max-width: 1200px) {
+    padding-bottom: 1.5rem;
+  }
 `;
 
 const TagBox = styled.div`
-  width: 140px;
-  height: 40px;
   background-color: #ff6060;
-  border-radius: 50px;
+  border-radius: 20px;
   color: #ffffff;
   font-weight: bold;
-  gap: 15px;
+  padding: 10px 10px;
+  flex: 1;
   display: flex;
   justify-content: center;
   align-items: center;
   text-align: center;
-  margin-right: 15px;
+
+  @media (min-width: 320px) and (max-width: 1200px) {
+    border-radius: 12px;
+    font-size: 12px;
+  }
 `;
 
-function Tags(tags) {
-  const { logementId } = useParams();
-  const logement = data.find((log) => log.id === logementId);
+function Tags(props) {
   return (
     <TagsContainer>
       {" "}
-      {logement.tags.map((tags) => (
+      {props.tags.map((tags) => (
         <TagBox key={tags}>
           <span>{tags}</span>
         </TagBox>

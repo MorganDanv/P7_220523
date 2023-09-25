@@ -18,6 +18,7 @@ const BannerScreen = styled.img`
   max-height: 223px;
   border-radius: 30px;
   object-fit: cover;
+  filter: brightness(70%);
   @media (min-width: 320px) and (max-width: 1200px) {
     max-height: 100px;
     border-radius: 15px;
@@ -39,6 +40,18 @@ const TextWrapperBanner = styled.div`
   text-align: center;
   top: 50%;
   transform: translateY(-50%);
+  z-index: 1;
+  @media (min-width: 320px) and (max-width: 1200px) {
+    text-align: start;
+    margin-left: 20px;
+  }
+`;
+
+const BackReturn = styled.br`
+  display: none;
+  @media (min-width: 320px) and (max-width: 1200px) {
+    display: block;
+  }
 `;
 
 function Home() {
@@ -46,7 +59,10 @@ function Home() {
     <div>
       <BannerContainer>
         <TextWrapperBanner>
-          <BannerText>Chez vous, partout et ailleurs</BannerText>
+          <BannerText>
+            Chez vous,
+            <BackReturn /> partout et ailleurs
+          </BannerText>
         </TextWrapperBanner>
         <BannerScreen src={BannerHome} />
       </BannerContainer>

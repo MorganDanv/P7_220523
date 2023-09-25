@@ -12,31 +12,50 @@ import SliderTitle from "../../components/ScreenTitleSlider";
 
 const CollapseContainer = styled.div`
   width: 100%;
-  height: 50rem;
   display: grid;
-  grid-template-columns: 46% 46%;
-  justify-content: space-between;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 50px;
+  padding-top: 20px;
   @media (min-width: 320px) and (max-width: 1200px) {
     display: block;
   }
 `;
 
-const TagsRatingContainer = styled.div`
-  height: 6rem;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
+const MainContainer = styled.div`
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-gap: 50px;
+  @media (min-width: 320px) and (max-width: 1200px) {
+    display: block;
+  }
 `;
 
-const TitleHostContainer = styled.div`
+const RightContainer = styled.div`
   display: flex;
-  align-items: center;
-  padding-top: 20px;
+
+  flex-direction: column;
+  @media (min-width: 320px) and (max-width: 1200px) {
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: space-between;
+    align-items: center;
+    padding-bottom: 1.5rem;
+  }
+`;
+
+const LeftContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 `;
 const ContainerStyles = styled.div`
+  position: relative;
   width: 100%;
   height: 415px;
   margin: 0 auto;
+  padding-bottom: 2rem;
+  @media (min-width: 320px) and (max-width: 1200px) {
+    padding-top: 1.5rem;
 `;
 function Housing() {
   const { logementId } = useParams();
@@ -46,19 +65,23 @@ function Housing() {
   return (
     <>
       <ContainerStyles>
-        <Slider slides={logement.pictures} src={logement.pictures} />
+        <Slider pictures={logement.pictures} />
       </ContainerStyles>
-      <TitleHostContainer>
-        <SliderTitle>{logement.title}</SliderTitle>
-        <Host src={logement.host.picture} alt="img">
-          {logement.host.name}
-        </Host>
-      </TitleHostContainer>
-      <Location>{logement.location}</Location>
-      <TagsRatingContainer>
-        <Tags>{logement.tags}</Tags>
-        <Rating>{logement.rating}</Rating>
-      </TagsRatingContainer>
+      <MainContainer>
+        <LeftContainer>
+          <SliderTitle title={logement.title}></SliderTitle>
+          <Location location={logement.location}></Location>
+          <Tags tags={logement.tags}></Tags>
+        </LeftContainer>
+        <RightContainer>
+          <Host
+            image={logement.host.picture}
+            alt="img"
+            hostname={logement.host.name}
+          ></Host>
+          <Rating rate={logement.rating}></Rating>
+        </RightContainer>
+      </MainContainer>
       <CollapseContainer>
         <Collapse title="Description">{logement.description}</Collapse>
         <Collapse title="Equipements">
