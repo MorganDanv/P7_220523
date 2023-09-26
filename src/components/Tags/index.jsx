@@ -15,12 +15,13 @@ const TagBox = styled.div`
   color: #ffffff;
   font-weight: bold;
   padding: 10px 10px;
-  flex: 1;
+  // flex: 1;
   display: flex;
   justify-content: center;
   align-items: center;
   text-align: center;
-
+  width: 140px;
+  height: 20px;
   @media (min-width: 320px) and (max-width: 1200px) {
     border-radius: 12px;
     font-size: 12px;
