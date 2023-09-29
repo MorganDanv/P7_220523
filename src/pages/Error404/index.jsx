@@ -8,9 +8,9 @@ const ScreenWrapper = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding-top: 100px;
+  padding: 125px 0;
   @media (min-width: 320px) and (max-width: 1200px) {
-    padding-top: 180px;
+    padding: 50px 0;
   }
 `;
 

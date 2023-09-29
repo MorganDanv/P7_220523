@@ -9,6 +9,7 @@ import Location from "../../components/Location";
 import Host from "../../components/Host";
 import Slider from "../../components/Slider";
 import SliderTitle from "../../components/ScreenTitleSlider";
+import Error from "../Error404/index";
 
 const CollapseContainer = styled.div`
   width: 100%;
@@ -57,10 +58,14 @@ const ContainerStyles = styled.div`
   @media (min-width: 320px) and (max-width: 1200px) {
     padding-top: 1.5rem;
 `;
+
 function Housing() {
   const { logementId } = useParams();
   const logement = data.find((log) => log.id === logementId);
-  console.log(logement);
+
+  if (!logement) {
+    return <Error />;
+  }
 
   return (
     <>

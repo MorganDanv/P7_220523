@@ -50,6 +50,7 @@ const Slider = ({ pictures }) => {
     const newIndex = isLastSlide ? 0 : currentIndex + 1;
     setCurrentIndex(newIndex);
   };
+
   return (
     <>
       {pictures.length > 1 && (

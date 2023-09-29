@@ -6,6 +6,9 @@ const TagsContainer = styled.div`
   gap: 15px;
   @media (min-width: 320px) and (max-width: 1200px) {
     padding-bottom: 1.5rem;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-gap: 15px;
   }
 `;
 
@@ -15,7 +18,6 @@ const TagBox = styled.div`
   color: #ffffff;
   font-weight: bold;
   padding: 10px 10px;
-  // flex: 1;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -31,7 +33,6 @@ const TagBox = styled.div`
 function Tags(props) {
   return (
     <TagsContainer>
-      {" "}
       {props.tags.map((tags) => (
         <TagBox key={tags}>
           <span>{tags}</span>
