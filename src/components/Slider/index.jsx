@@ -39,7 +39,6 @@ const RightArrowStyles = styled.img`
 const Slider = ({ pictures }) => {
   const [currentIndex, setCurrentIndex] = useState(0);
 
-  console.log(pictures);
   const goToPrevious = () => {
     const isFirstSlide = currentIndex === 0;
     const newIndex = isFirstSlide ? pictures.length - 1 : currentIndex - 1;
