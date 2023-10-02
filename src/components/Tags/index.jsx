@@ -3,30 +3,29 @@ import styled from "styled-components";
 
 const TagsContainer = styled.div`
   display: flex;
-  gap: 15px;
+  flex-wrap: wrap;
   @media (min-width: 320px) and (max-width: 1200px) {
-    padding-bottom: 1.5rem;
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    grid-gap: 15px;
   }
 `;
 
 const TagBox = styled.div`
+  margin: 10px 10px;
+  flex-basis: 145px;
+  flex-shrink: 0;
+  flex-grow: 0;
   background-color: #ff6060;
   border-radius: 20px;
   color: #ffffff;
   font-weight: bold;
   padding: 10px 10px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
   text-align: center;
-  width: 140px;
-  height: 20px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
   @media (min-width: 320px) and (max-width: 1200px) {
     border-radius: 12px;
     font-size: 12px;
+    flex-basis: 115px;
   }
 `;
 
