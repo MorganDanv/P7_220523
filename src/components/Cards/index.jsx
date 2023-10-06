@@ -43,6 +43,7 @@ const ShadowBox = styled.div`
   width: 100%;
   height: 300px;
   opacity: 0.3;
+  border-radius: 10px;
 `;
 
 const ThumbImg = styled.img`
