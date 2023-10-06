@@ -33,6 +33,18 @@ const ThumbBox = styled.div`
   }
 `;
 
+const ShadowContainer = styled.div`
+  position: relative;
+`;
+
+const ShadowBox = styled.div`
+  position: absolute;
+  background: linear-gradient(#ababab, #999999);
+  width: 100%;
+  height: 300px;
+  opacity: 0.4;
+`;
+
 const ThumbImg = styled.img`
   width: 100%;
   height: 300px;
@@ -46,10 +58,11 @@ const TextWrapper = styled.div`
   top: 15rem;
   left: 1.5rem;
   right: 1.5rem;
+  z-index: 1;
 `;
 
 const TextThumb = styled.h1`
-  font-size: 1rem;
+  font-size: 1.1rem;
   color: white;
   text-shadow: 2px 2px 1px rgb(0, 0, 0, 0.5);
 `;
@@ -73,7 +86,10 @@ function Card() {
           <TextWrapper>
             <TextThumb>{data.title}</TextThumb>
           </TextWrapper>
-          <ThumbImg src={data.cover} alt="img" />
+          <ShadowContainer>
+            <ShadowBox></ShadowBox>
+            <ThumbImg src={data.cover} alt="img" />
+          </ShadowContainer>
         </ThumbBox>
       ))}
     </ThumbWrapper>
