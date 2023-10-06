@@ -42,7 +42,7 @@ const ShadowBox = styled.div`
   background: linear-gradient(#ababab, #999999);
   width: 100%;
   height: 300px;
-  opacity: 0.4;
+  opacity: 0.3;
 `;
 
 const ThumbImg = styled.img`
