@@ -65,7 +65,6 @@ const TextWrapper = styled.div`
 const TextThumb = styled.h1`
   font-size: 1.1rem;
   color: white;
-  text-shadow: 2px 2px 1px rgb(0, 0, 0, 0.5);
 `;
 
 function Card() {

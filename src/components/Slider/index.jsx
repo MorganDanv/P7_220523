@@ -36,6 +36,18 @@ const RightArrowStyles = styled.img`
   }
 `;
 
+const CounterSlider = styled.div`
+  position: absolute;
+  right: 50%;
+  top: 80%;
+  color: white;
+  font-size: 1.5rem;
+  font-weight: bold;
+  @media (min-width: 320px) and (max-width: 1200px) {
+    display: none;
+  }
+`;
+
 const Slider = ({ pictures }) => {
   const [currentIndex, setCurrentIndex] = useState(0);
 
@@ -68,6 +80,9 @@ const Slider = ({ pictures }) => {
           <SliderStyles $pictures={pictures} $currentIndex={currentIndex} />
         </>
       )}
+      <CounterSlider>
+        {currentIndex + 1}/{pictures.length}
+      </CounterSlider>
     </>
   );
 };
